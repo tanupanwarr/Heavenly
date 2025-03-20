@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Listings</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Filtered Listings</h1>
+        <a href="/listings">🔙 Back to Listings</a>
+    </header>
+
+    <div class="filter-options">
+        <p>Showing results sorted by: <strong><%= filter %></strong></p>
+        <select id="filterSelect">
+            <option value="">--Select Filter--</option>
+            <option value="price-low" <%= filter === "price-low" ? "selected" : "" %>>Price: Low to High</option>
+            <option value="price-high" <%= filter === "price-high" ? "selected" : "" %>>Price: High to Low</option>
+            <option value="rating" <%= filter === "rating" ? "selected" : "" %>>Rating</option>
+        </select>
+    </div>
+
+    <div class="listings">
+        <% if (results.length > 0) { %>
+            <% results.forEach(listing => { %>
+                <div class="listing-card">
+                    <img src="<%= listing.image %>" alt="<%= listing.title %>">
+                    <h2><%= listing.title %></h2>
+                    <p>Price: ₹<%= listing.price %>/night</p>
+                    <p>Rating: <%= listing.rating %> ⭐</p>
+                    <a href="/listings/<%= listing._id %>">View Details</a>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No listings found for this filter.</p>
+        <% } %>
+    </div>
+
+    <script>
+        document.getElementById("filterSelect").addEventListener("change", function() {
+            const selectedFilter = this.value;
+            if (selectedFilter) {
+                window.location.href = `/search?filter=${selectedFilter}`;
+            }
+        });
+    </script>
+</body>
+</html>

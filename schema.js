@@ -1,5 +1,23 @@
 const Joi = require("joi");
 
+const validCategories = [
+  "mountains",
+  "rooms",
+  "farms",
+  "arctic",
+  "trending",
+  "icons",
+  "Castles",
+  "Amazing Pools",
+  "Historical homes",
+  "Camping",
+  "Farms",
+  "Beach",
+  "Skiing",
+  "Lakes",
+  "Hiking",
+];
+
 module.exports.listingSchema = Joi.object({
   listing: Joi.object({
     title: Joi.string().required(),
@@ -8,7 +26,9 @@ module.exports.listingSchema = Joi.object({
     country: Joi.string().required(),
     price: Joi.number().required().min(0),
     image: Joi.object().allow("", null),
-    category: Joi.string().required(),
+    category: Joi.string()
+      .valid(...validCategories)
+      .required(),
   }).required(),
 });
 

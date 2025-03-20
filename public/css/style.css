@@ -16,24 +16,33 @@ body {
 
 /* Navbar */
 .navbar{
-    height: 4rem;
+    height: 3rem;
     background-color: white;
     margin-bottom: 1rem;
 }
 
+.navbar-collapse{
+  background-color: white !important;
+  transition: background-color 0.3s ease-in-out;
+}
+
 .fa-compass{
     color: #fe424d;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    padding: 5px !important;
 }
 
 .nav-link{
-    color: #222222 !important;
+    font-weight: 250px !important;
+    padding: 5px !important;
+    color: #fe424d !important; 
 }
 
 /* Footer */
 .f-info-links a{
     color: #222222;
     text-decoration: none;
+    font-size: 18px;
 }
 
 .f-info-links a:hover{
@@ -64,7 +73,7 @@ body {
 
 .listing-card{
     border: none !important;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .card-img-top{
@@ -78,11 +87,13 @@ body {
 }
 
 .card-text {
-    font-weight: 400 !important;
+    font-weight: 350 !important;
+    font-size: 15px !important;
 }
 
 .listing-link{
     text-decoration: none;
+    padding: 10px !important;
 }
 
 .card-img-overlay{
@@ -103,7 +114,7 @@ body {
 
 /* Show page */
 .show-img{
-    height: 40vh;
+    height: 50vh;
 }
 
 .btns
@@ -115,3 +126,223 @@ body {
     padding-left: 0;
     padding-right: 0 ;
 }
+
+/* navbar search option */
+
+.search-btn{
+    background-color: white;
+    color: #fe424d;
+    border-color: #fe424d;
+    border-radius: 25px;
+    padding: 2px 15px 2px 10px;
+  }
+
+.search-btn:hover {
+    background-color: #fe424d;
+    color: #fff;
+  }
+
+.search-btn i {
+    display: inline;
+    margin: 0.5rem;
+  }
+
+.search-inp {
+    border-color: #fe424d;
+    border-radius: 25px;
+    padding: auto;
+  }
+
+.filter {
+    text-align: center;
+    margin-right: 1.3rem;
+    margin-top: 1rem;
+    opacity: 0.7;
+
+  }
+
+.filter:hover {
+    opacity: 1;
+  }
+
+.filter p {
+    font-size: 0.6rem;
+  }
+
+.tax-info {
+    display: none;
+  }
+
+.form-check-label {
+    color: rgb(34, 34, 34);
+    font-weight: 500;
+  }
+
+.icon-scroll-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+    padding: 10px 0;
+    z-index: 10;
+    overflow: hidden;
+    background: white;
+  }
+
+.icon-scroll-bar {
+    display: flex;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+.icon-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    width:100%;
+    scrollbar-width: none;
+    /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none;
+    /* Hide scrollbar for IE */
+  }
+
+.icon-scroll-bar::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar for Chrome, Safari */
+  }
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+.right-btns {
+    display: flex;
+    align-items: center;
+  }
+
+.tax-toggle {
+    border: 1px solid rgba(0, 0, 0, 0.21);
+    border-radius: 0.5rem;
+    height: 2.5rem;
+    width: 16rem;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+.tax-toggle:hover {
+    background: rgb(241, 240, 240);
+    border-color: black;
+  }
+
+.filters {
+    border: 1px solid rgba(0, 0, 0, 0.21);
+    border-radius: 0.5rem;
+    height: 2.5rem;
+    width: 7rem;
+    padding-left: 20px;
+    padding-right: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+.filters:hover {
+    background: rgb(241, 240, 240);
+    border-color: black;
+  }
+
+.left {
+    left: 0;
+    }
+
+.right {
+    right: 0;
+  }
+
+@media (min-width:768px) and (max-width: 1400px) {
+    .icon-scroll-container {
+      flex-direction: column;
+    }
+
+    .icon-scroll-bar {
+      width: 100%;
+    }
+
+    .scroll-btn {
+      display: block;
+    }
+  }
+
+
+/* Map */
+
+#map{
+    height: 300px;
+    width: 100vh;
+    border-radius: 10px;
+  }
+
+/* Filters */
+/* Filter Button */
+.filter-container {
+  position: relative;
+  width: 120px;
+  cursor: pointer;
+  padding: 10px 15px;
+  background: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050; /* Ensure it's above other elements */
+}
+
+/* Dropdown List */
+.filter-list {
+  display: none;
+  position: absolute;
+  width: 220px;  /* Make it wider for readability */
+  top: 100%;  /* Position below the filter button */
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  z-index: 1100; /* Ensure dropdown appears on top */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);  /* Add shadow for visibility */
+}
+
+/* Dropdown Items */
+.filter-list li {
+  padding: 12px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s ease-in-out;
+}
+
+.filter-list li:hover {
+  background: #f1f1f1;
+}
+
